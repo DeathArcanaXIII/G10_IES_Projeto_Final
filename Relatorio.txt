@@ -1,0 +1,9 @@
+-----STATUS DO EQUIPAMENTO-----
+Segurança: Necessita Manutenção!
+Limpeza: Necessita Manutenção!
+Equip. Incêndio: Necessita Manutenção!
+Luzes: Necessita Manutenção!
+Som: Necessita Manutenção!
+Tela: Necessita Manutenção!
+Projetor: Necessita Manutenção!
+TMS(Theater Management Sustem): Necessita Manutenção!
