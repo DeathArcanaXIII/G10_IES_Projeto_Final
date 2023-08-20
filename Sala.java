@@ -262,5 +262,19 @@ public class Sala
             return true;
         }
     }
+    
+    public static void main(String[] args) 
+    {
+        Sala salaCinema = new Sala();
+        
+        salaCinema.setStatusSeguranca(1);
+        salaCinema.setStatusLimpeza(1);
+        salaCinema.setStatusBombeiros(1);
+        salaCinema.setStatusLuzes(1);
+        salaCinema.setStatusSom(1);
+        salaCinema.setStatusTela(1);
+        salaCinema.setStatusProjetor(1);
+        salaCinema.setStatusTMS(1);
+    }
 }
 

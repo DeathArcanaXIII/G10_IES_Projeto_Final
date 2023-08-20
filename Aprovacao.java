@@ -8,6 +8,14 @@ public class Aprovacao{
     private boolean statusProjetorTMS;
     private boolean statusTela;
 
+    public void testarEquipamento()
+    {
+        Sala sala01 = new Sala();
+        if(sala01.getStatusSom() == false)
+        {
+            System.out.println("Som: Necessita manutenção!");
+        }
+    }
     public Aprovacao() {
         // Configuração inicial dos status
         statusAprovacao = false;
