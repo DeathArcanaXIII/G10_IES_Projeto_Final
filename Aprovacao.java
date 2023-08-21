@@ -8,16 +8,12 @@ public class Aprovacao{
     private boolean statusSeguranca;
     private boolean statusLimpeza;
     private boolean statusPermissaoBombeiros;
-    private boolean statusLuzSom;
-    private boolean statusProjetorTMS;
+    private boolean statusLuzes;
+    private boolean statusSom;
+    private boolean statusProjetor;
+    private boolean statusTMS;
     private boolean statusTela;
     
-    Sala sala01 = new Sala();
-    
-    public void initStatus()
-    {
-        sala01.setStatusSeguranca(1);
-    }
 
     /** 
      * User Story 1 - Caio da Silva Alves
@@ -25,7 +21,7 @@ public class Aprovacao{
     public void testarEquipamento() 
     {
         System.out.println("/----------STATUS DOS EQUIPAMENTOS----------/\n");
-        if(sala01.getStatusSeguranca() == false)
+        if(statusSeguranca == false)
         {
             System.out.println("Segurança: Necessita manutenção!");
         }
@@ -33,7 +29,7 @@ public class Aprovacao{
         {
             System.out.println("Segurança: Funcionando corretamente!");
         }
-        if(sala01.getStatusLimpeza() == false)
+        if(statusLimpeza == false)
         {
             System.out.println("Limpeza: Necessita manutenção!");
         }
@@ -41,7 +37,7 @@ public class Aprovacao{
         {
             System.out.println("Limpeza: Funcionando corretamente!");
         }
-        if(sala01.getStatusBombeiros() == false)
+        if(statusPermissaoBombeiros == false)
         {
             System.out.println("Equip. Incêndio: Necessita manutenção!");
         }
@@ -49,7 +45,7 @@ public class Aprovacao{
         {
             System.out.println("Equio. Incêndio: Funcionando corretamente!");
         }
-        if(sala01.getStatusLuzes() == false)
+        if(statusLuzes == false)
         {
             System.out.println("Luzes: Necessita manutenção!");
         }
@@ -57,7 +53,7 @@ public class Aprovacao{
         {
             System.out.println("Luzes: Funcionando corretamente!");
         }
-        if(sala01.getStatusSom() == false)
+        if(statusSom == false)
         {
             System.out.println("Som: Necessita manutenção!");
         }
@@ -65,7 +61,7 @@ public class Aprovacao{
         {
             System.out.println("Som: Funcionando corretamente!");
         }
-        if(sala01.getStatusTela() == false)
+        if(statusTela == false)
         {
             System.out.println("Tela: Necessita manutenção!");
         }
@@ -73,7 +69,7 @@ public class Aprovacao{
         {
             System.out.println("Tela: Funcionando corretamente!");
         }
-        if(sala01.getStatusSeguranca() == false)
+        if(statusProjetor == false)
         {
             System.out.println("Projetor: Necessita manutenção!");
         }
@@ -81,7 +77,7 @@ public class Aprovacao{
         {
             System.out.println("Projetor: Funcionando corretamente!");
         }
-        if(sala01.getStatusTMS() == false)
+        if(statusTMS == false)
         {
             System.out.println("TMS(Theater Management System): Necessita manutenção!");
         }
@@ -104,7 +100,7 @@ public class Aprovacao{
             BufferedWriter escrita = new BufferedWriter(new FileWriter(nomeArquivo));
             escrita.write("-----STATUS DO EQUIPAMENTO-----");
             escrita.newLine();
-            if(sala01.getStatusSeguranca() == true)
+            if(statusSeguranca == true)
             {
                 escrita.write("Segurança: Funcionando!\n");
             }
@@ -112,7 +108,7 @@ public class Aprovacao{
             {
                 escrita.write("Segurança: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusLimpeza() == true)
+            if(statusLimpeza == true)
             {
                 escrita.write("Limpeza: Funcionando!\n");
             }
@@ -120,7 +116,7 @@ public class Aprovacao{
             {
                 escrita.write("Limpeza: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusBombeiros() == true)
+            if(statusPermissaoBombeiros == true)
             {
                 escrita.write("Equip. Incêndio: Funcionando!\n");
             }
@@ -128,7 +124,7 @@ public class Aprovacao{
             {
                 escrita.write("Equip. Incêndio: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusLuzes() == true)
+            if(statusLuzes == true)
             {
                 escrita.write("Luzes: Funcionando!\n");
             }
@@ -136,7 +132,7 @@ public class Aprovacao{
             {
                 escrita.write("Luzes: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusSom() == true)
+            if(statusSom == true)
             {
                 escrita.write("Som: Funcionando!\n");
             }
@@ -144,7 +140,7 @@ public class Aprovacao{
             {
                 escrita.write("Som: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusTela() == true)
+            if(statusTela == true)
             {
                 escrita.write("Tela: Funcionando!\n");
             }
@@ -152,7 +148,7 @@ public class Aprovacao{
             {
                 escrita.write("Tela: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusProjetor() == true)
+            if(statusProjetor == true)
             {
                 escrita.write("Projetor: Funcionando!\n");
             }
@@ -160,7 +156,7 @@ public class Aprovacao{
             {
                 escrita.write("Projetor: Necessita Manutenção!\n");
             }
-            if(sala01.getStatusTMS() == true)
+            if(statusTMS == true)
             {
                 escrita.write("TMS(Theater Management System): Funcionando!\n");
             }
@@ -182,8 +178,10 @@ public class Aprovacao{
         statusSeguranca = false;
         statusLimpeza = false;
         statusPermissaoBombeiros = false;
-        statusLuzSom = false;
-        statusProjetorTMS = false;
+        statusLuzes = false;
+        statusSom = false;
+        statusProjetor = false;
+        statusTMS = false;
         statusTela = false;
     }
 
@@ -219,20 +217,28 @@ public class Aprovacao{
         this.statusPermissaoBombeiros = statusPermissaoBombeiros;
     }
 
-    public boolean isStatusLuzSom() {
-        return statusLuzSom;
+    public boolean isStatusLuzes() {
+        return statusLuzes;
     }
 
-    public void setStatusLuzSom(boolean statusLuzSom) {
-        this.statusLuzSom = statusLuzSom;
+    public void setStatusLuz(boolean statusLuz) {
+        this.statusLuzes = statusLuz;
+    }
+    
+    public boolean isStatusSom(){
+        return statusSom;
+    }
+    
+    public void setStatusSom(boolean statusSom){
+        this.statusSom = statusSom;
     }
 
-    public boolean isStatusProjetorTMS() {
-        return statusProjetorTMS;
+    public boolean isStatusProjetor() {
+        return statusProjetor;
     }
 
-    public void setStatusProjetorTMS(boolean statusProjetorTMS) {
-        this.statusProjetorTMS = statusProjetorTMS;
+    public void setStatusProjetor(boolean statusProjetor) {
+        this.statusProjetor = statusProjetor;
     }
 
     public boolean isStatusTela() {
@@ -241,6 +247,15 @@ public class Aprovacao{
 
     public void setStatusTela(boolean statusTela) {
         this.statusTela = statusTela;
+    }
+    
+    public boolean isStatusTMS()
+    {
+        return statusTMS;
+    }
+    
+    public void setStatusTMS(boolean statusTMS){
+        this.statusTMS = statusTMS;
     }
 
     public void acessarSala() {
@@ -251,8 +266,9 @@ public class Aprovacao{
 
         aprovacao.setStatusSeguranca(true);
         aprovacao.setStatusLimpeza(true);
-        aprovacao.setStatusLuzSom(true);
-        aprovacao.setStatusProjetorTMS(true);
+        aprovacao.setStatusLuz(true);
+        aprovacao.setStatusSom(true);
+        aprovacao.setStatusTMS(true);
         aprovacao.setStatusTela(true);
         aprovacao.acessarSala();
 

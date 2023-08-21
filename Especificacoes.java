@@ -15,7 +15,7 @@ public class Especificacoes {
     private String equipamentoEletronicoSalaProjecao;
     private String descricaoDisposicaoCaixasDeSom;
     
-    public Especificacoes(int comprimento, int largura, int quantidadeAssentos,
+    public void setEspecificacoes(int comprimento, int largura, int quantidadeAssentos,
                           boolean ehAcessivel, String tipoProjetor,
                           int quantidadeSaidasEmergencia,
                           String equipamentoEletronicoSalaProjecao,

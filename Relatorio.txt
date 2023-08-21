@@ -4,6 +4,6 @@ Limpeza: Necessita Manutenção!
 Equip. Incêndio: Necessita Manutenção!
 Luzes: Necessita Manutenção!
 Som: Necessita Manutenção!
-Tela: Necessita Manutenção!
+Tela: Funcionando!
 Projetor: Necessita Manutenção!
 TMS(Theater Management Sustem): Necessita Manutenção!

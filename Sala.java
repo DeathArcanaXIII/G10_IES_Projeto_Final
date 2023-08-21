@@ -10,6 +10,7 @@ import java.util.*;
 public class Sala 
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
+    
     private int[] checkList = new int[8];
     private int numDaSala;
 
@@ -42,6 +43,7 @@ public class Sala
     /**
      Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
      */
+    //Setter/Getters - Caio da Silva Alves
     public void setStatusLimpeza(int status)
     {
         if(status != 0 && status!= 1)
