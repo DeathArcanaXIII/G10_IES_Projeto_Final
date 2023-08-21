@@ -56,7 +56,7 @@ public class Disponibilidade
             if(comando == 0)
             {
                 System.out.println("/-----Escolha uma função-----/\n");
-                System.out.println("Gerenciar salas: 1\nChecar disponibilidade: 2\nSair: 3\n");
+                System.out.println("Gerenciar salas: 1\nChecar disponibilidade: 2\nManutenção da Sala: 3\nSair: 4\n");
                 Scanner scanComando = new Scanner(System.in);
                 comando = scanComando.nextInt();
             }
@@ -65,7 +65,7 @@ public class Disponibilidade
                 while(atributo != 6){
                     if(atributo == 0){
                         System.out.println("\n/----------Qual atributo deseja gerenciar?----------/\n");
-                        System.out.println("Dimensões da Sala: 1\nAssentos disponíveis: 2\nTipo de projetor: 3\nSaídas de emergencia: 4\nSistema de som: 5\nSair: 6\n");
+                        System.out.println("Dimensões da Sala: 1\nAssentos disponíveis: 2\nTipo de projetor: 3\nSaídas de emergencia: 4\nSistema de som: 5\nVoltar: 6\n");
                         Scanner scanAtributo = new Scanner(System.in);
                         atributo = scanAtributo.nextInt();
                     }else if(atributo == 1){
@@ -87,8 +87,23 @@ public class Disponibilidade
                         Scanner scanProjetor = new Scanner(System.in);
                         int tipoProjetor = scanProjetor.nextInt();
                         sala01.setTipoProjetor(tipoProjetor);
+                        atributo = 0;
+                    }else if(atributo == 4){
+                        System.out.println("Quantas saídas de emergência tem esta sala?");
+                        Scanner scanSaida = new Scanner(System.in);
+                        int saida = scanSaida.nextInt();
+                        sala01.setQuantidadeSaidasEmergencia(saida);
+                        atributo = 0;
+                    }else if(atributo == 5){
+                        System.out.println("Qual dispositivo de som tem esta sala?");
+                        System.out.println("Stereo: 1\nSurround 5.1: 2\nSurround 7.1: 3");
+                        Scanner scanSom = new Scanner(System.in);
+                        int tipoSom = scanSom.nextInt();
+                        sala01.setDescricaoDisposicaoCaixasDeSom(tipoSom);
+                        atributo = 0;
                     }
                 }
+                comando = 0;
             }
             else if(comando == 2)
             {

@@ -74,6 +74,24 @@ public class Sala
         if(tipoProjetor == 1){
             this.tipoProjetor = "IMAX";
         }
+        else if(tipoProjetor == 2){
+            this.tipoProjetor = "3D";
+        }
+        else if(tipoProjetor == 3){
+            this.tipoProjetor = "4DX";
+        }
+        else if(tipoProjetor == 4){
+            this.tipoProjetor = "XD";
+        }
+        else if(tipoProjetor == 5){
+            this.tipoProjetor = "X-PLUS";
+        }
+        else if(tipoProjetor == 6){
+            this.tipoProjetor = "Macro-XE";
+        }
+        else{
+            System.out.println("OPÇÃO INVALÍDA");
+        }
         System.out.println("Projetor alterado!");
     }
     
@@ -98,8 +116,19 @@ public class Sala
         return descricaoDisposicaoCaixasDeSom;
     }
     
-    public void setDescricaoDisposicaoCaixasDeSom(String descricaoDisposicaoCaixasDeSom) {
-        this.descricaoDisposicaoCaixasDeSom = descricaoDisposicaoCaixasDeSom;
+    public void setDescricaoDisposicaoCaixasDeSom(int tipoSom) {
+        if(tipoSom == 1){
+            this.descricaoDisposicaoCaixasDeSom = "Stereo";
+        }
+        else if(tipoSom == 2){
+            this.descricaoDisposicaoCaixasDeSom = "Surround 5.1";
+        }
+        else if(tipoSom == 3){
+            this.descricaoDisposicaoCaixasDeSom = "Surround 7.1";
+        }
+        else{
+            System.out.println("Opção Invalída");
+        }
         System.out.println("Sistema de som alterado!");
     }
 
