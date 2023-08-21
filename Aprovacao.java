@@ -5,10 +5,11 @@ import java.io.FileWriter;
 
 public class Aprovacao {
     private boolean aprovacao = false;
-    Disponibilidade disponibilidade = new Disponibilidade();
-    Sala sala = disponibilidade.getSala01();
-    
-
+    Sala sala;
+    public void acessarSala(Sala novaSala)
+    {
+        sala = novaSala;
+    }
     /**
      * User Story 1 - Caio da Silva Alves
      */
@@ -210,19 +211,56 @@ public class Aprovacao {
             System.out.println ("Chamar equipe de Bombeiros");
         }
     }
-   
-    public boolean getstatusAprovacao() {
-        int qtdEquipamentosFuncionando = 0;
-        for(int i = 0; i < 8; i++){
+    public void setStatusSala(int selecao, int status){
+       
+        
+        if(status != 0 && status!= 1)
+        {
+            System.out.println("INSIRA UM VALOR VÁLIDO!");
+        }
+        else
+        {
+            sala.checkList[selecao] = status;
+        }
+        
+    }
+    public void getEspecificacao(){
+        String nomeArquivo = "Especs.txt";
+        try
+        {
+            BufferedWriter escrita = new BufferedWriter(new FileWriter(nomeArquivo));
+            escrita.write("-----ESPECIFICACOES DA SALA-----");
+            escrita.newLine();
+            escrita.write("Numero da sala:"+sala.getNumDaSala()+"\n");
+            escrita.write("Comprimento:"+sala.getComprimento()+"\n");
+            escrita.write("Largura:"+sala.getLargura()+"\n");
+            escrita.write("Quantidade de assentos:"+sala.getQuantidadeAssentos()+"\n");
+            escrita.write("Acessíbilidade:"+sala.isEhAcessivel()+"\n");
+            escrita.write("Tipo de projetor:"+sala.getTipoProjetor()+"\n");
+            escrita.write("Quantidade de saidas de emergência:"+sala.getQuantidadeSaidasEmergencia()+"\n");
+            escrita.write("Equipamento eletronico para projeção:"+sala.getEquipamentoEletronicoSalaProjecao()+"\n");
+            escrita.write("Disposição das caixas de som:"+sala.getDescricaoDisposicaoCaixasDeSom()+"\n");
+            escrita.close();
+            System.out.println("\nRelatório gerado com sucesso!");
+        }
+        catch(IOException e)
+        {
+            System.err.println("Erro ao gerar relatório!" + e.getMessage());
+        }
+    }
+    
+     public boolean getstatusAprovacao(){
+     int qtdEquipamentosFuncionando = 0;
+     for(int i = 0; i < 8; i++){
             if(sala.checkList[i] == 1){
                 qtdEquipamentosFuncionando++;
             }
         }
-        if(qtdEquipamentosFuncionando == 7){
+     if(qtdEquipamentosFuncionando == 7){
             aprovacao = true;
            
         }
-        return aprovacao;
+     return aprovacao;
 
     }
 }

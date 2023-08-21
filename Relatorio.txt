@@ -1,9 +1,0 @@
------STATUS DO EQUIPAMENTO-----
-Segurança: Funcionando!
-Limpeza: Funcionando!
-Equip. Incêndio: Funcionando!
-Luzes: Funcionando!
-Som: Funcionando!
-Tela: Funcionando!
-Projetor: Funcionando!
-TMS(Theater Management System): Funcionando!

@@ -11,27 +11,16 @@ public class Sala
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     
-    public int[] checkList = new int[8];
-    private int numDaSala;
-    private int comprimento;
-    private int largura;
+    public int[] checkList = {0, 1, 2, 3, 4, 5, 6, 7};
+    private int numDaSala = 0;
+    private int comprimento = 0;
+    private int largura = 0;
     private int quantidadeAssentos;
     private boolean ehAcessivel;
     private String tipoProjetor;
     private int quantidadeSaidasEmergencia;
     private String equipamentoEletronicoSalaProjecao;
     private String descricaoDisposicaoCaixasDeSom;
-
-    /**
-     * Construtor para objetos da classe Sala
-     */
-    public Sala()
-    {
-        // inicializa variáveis de instância
-        for(int i = 0; i < 8; i++){
-            checkList[i] = 0;
-        }
-    }
 
     public void setNumDaSala(int num)
     {
@@ -48,6 +37,7 @@ public class Sala
     
     public void setComprimento(int comprimento){
         this.comprimento = comprimento;
+        System.out.println("Comprimento alterado!");
     }
 
     public int getLargura() {
@@ -56,6 +46,7 @@ public class Sala
     
     public void setLargura(int largura){
         this.largura = largura;
+        System.out.println("Largura alterado!");
     }
 
     public int getQuantidadeAssentos() {
@@ -64,6 +55,7 @@ public class Sala
     
     public void setQuantidadeAssentos(int quantidadeAssentos){
         this.quantidadeAssentos = quantidadeAssentos;
+        System.out.println("Quantidade de assentos alterado!");
     }
     
     public boolean isEhAcessivel() {
@@ -78,8 +70,11 @@ public class Sala
         return tipoProjetor;
     }
     
-    public void setTipoProjetor(String tipoProjetor){
-        this.tipoProjetor = tipoProjetor;
+    public void setTipoProjetor(int tipoProjetor){
+        if(tipoProjetor == 1){
+            this.tipoProjetor = "IMAX";
+        }
+        System.out.println("Projetor alterado!");
     }
     
     public int getQuantidadeSaidasEmergencia() {
@@ -88,6 +83,7 @@ public class Sala
  
     public void setQuantidadeSaidasEmergencia(int getQuantidadeSaidasEmergencia){
         this.quantidadeSaidasEmergencia = quantidadeSaidasEmergencia;
+        System.out.println("Saidas de emergencia alterado!");
     }
     
     public String getEquipamentoEletronicoSalaProjecao() {
@@ -104,129 +100,9 @@ public class Sala
     
     public void setDescricaoDisposicaoCaixasDeSom(String descricaoDisposicaoCaixasDeSom) {
         this.descricaoDisposicaoCaixasDeSom = descricaoDisposicaoCaixasDeSom;
+        System.out.println("Sistema de som alterado!");
     }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusSeguranca(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[0] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    //Setter/Getters - Caio da Silva Alves
-    public void setStatusLimpeza(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[1] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusBombeiros(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[2] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusLuzes(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[3] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusSom(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[4] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusTela(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[5] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusProjetor(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[6] = status;
-        }
-    }
-    
-    /**
-     Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
-     */
-    public void setStatusTMS(int status)
-    {
-        if(status != 0 && status!= 1)
-        {
-            System.out.println("INSIRA UM VALOR VÁLIDO!");
-        }
-        else
-        {
-            checkList[7] = status;
-        }
-    }
-    
+
     /**
      Retorna "TRUE" caso funcionando corretamento, retorna "FALSE" caso necessite de manutenção. 
      */
