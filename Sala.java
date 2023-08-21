@@ -11,7 +11,7 @@ public class Sala
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     
-    private int[] checkList = new int[8];
+    public int[] checkList = new int[8];
     private int numDaSala;
     private int comprimento;
     private int largura;

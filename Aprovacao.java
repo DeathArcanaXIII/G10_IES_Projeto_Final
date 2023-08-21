@@ -1,26 +1,21 @@
-import java.util.*; 
+import java.util.*;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 public class Aprovacao {
-    private boolean statusAprovacao;
-    private boolean statusSeguranca;
-    private boolean statusLimpeza;
-    private boolean statusPermissaoBombeiros;
-    private boolean statusLuzes;
-    private boolean statusSom;
-    private boolean statusProjetor;
-    private boolean statusTMS;
-    private boolean statusTela;
+    private boolean aprovacao = false;
+    Disponibilidade disponibilidade = new Disponibilidade();
+    Sala sala = disponibilidade.getSala01();
+    
 
-    /** 
+    /**
      * User Story 1 - Caio da Silva Alves
      */
-    public void testarEquipamento() 
+    public void testarEquipamento()
     {
         System.out.println("/----------STATUS DOS EQUIPAMENTOS----------/\n");
-        if(statusSeguranca == false)
+        if(sala.getStatusSeguranca() == false)
         {
             System.out.println("Segurança: Necessita manutenção!");
         }
@@ -28,7 +23,7 @@ public class Aprovacao {
         {
             System.out.println("Segurança: Funcionando corretamente!");
         }
-        if(statusLimpeza == false)
+        if(sala.getStatusLimpeza() == false)
         {
             System.out.println("Limpeza: Necessita manutenção!");
         }
@@ -36,7 +31,7 @@ public class Aprovacao {
         {
             System.out.println("Limpeza: Funcionando corretamente!");
         }
-        if(statusPermissaoBombeiros == false)
+        if(sala.getStatusBombeiros() == false)
         {
             System.out.println("Equip. Incêndio: Necessita manutenção!");
         }
@@ -44,7 +39,7 @@ public class Aprovacao {
         {
             System.out.println("Equio. Incêndio: Funcionando corretamente!");
         }
-        if(statusLuzes == false)
+        if(sala.getStatusLuzes() == false)
         {
             System.out.println("Luzes: Necessita manutenção!");
         }
@@ -52,7 +47,7 @@ public class Aprovacao {
         {
             System.out.println("Luzes: Funcionando corretamente!");
         }
-        if(statusSom == false)
+        if(sala.getStatusSom() == false)
         {
             System.out.println("Som: Necessita manutenção!");
         }
@@ -60,7 +55,7 @@ public class Aprovacao {
         {
             System.out.println("Som: Funcionando corretamente!");
         }
-        if(statusTela == false)
+        if(sala.getStatusTela() == false)
         {
             System.out.println("Tela: Necessita manutenção!");
         }
@@ -68,7 +63,7 @@ public class Aprovacao {
         {
             System.out.println("Tela: Funcionando corretamente!");
         }
-        if(statusProjetor == false)
+        if(sala.getStatusProjetor() == false)
         {
             System.out.println("Projetor: Necessita manutenção!");
         }
@@ -76,7 +71,7 @@ public class Aprovacao {
         {
             System.out.println("Projetor: Funcionando corretamente!");
         }
-        if(statusTMS == false)
+        if(sala.getStatusTMS() == false)
         {
             System.out.println("TMS(Theater Management System): Necessita manutenção!");
         }
@@ -88,8 +83,8 @@ public class Aprovacao {
         criarRelatorioTXT();
     }
 
-    /** 
-     * User Story 1 - Caio da Silva Alves 
+    /**
+     * User Story 1 - Caio da Silva Alves
      */
     private void criarRelatorioTXT()
     {
@@ -99,7 +94,7 @@ public class Aprovacao {
             BufferedWriter escrita = new BufferedWriter(new FileWriter(nomeArquivo));
             escrita.write("-----STATUS DO EQUIPAMENTO-----");
             escrita.newLine();
-            if(statusSeguranca == true)
+            if(sala.getStatusSeguranca() == true)
             {
                 escrita.write("Segurança: Funcionando!\n");
             }
@@ -107,7 +102,7 @@ public class Aprovacao {
             {
                 escrita.write("Segurança: Necessita Manutenção!\n");
             }
-            if(statusLimpeza == true)
+            if(sala.getStatusLimpeza() == true)
             {
                 escrita.write("Limpeza: Funcionando!\n");
             }
@@ -115,7 +110,7 @@ public class Aprovacao {
             {
                 escrita.write("Limpeza: Necessita Manutenção!\n");
             }
-            if(statusPermissaoBombeiros == true)
+            if(sala.getStatusBombeiros() == true)
             {
                 escrita.write("Equip. Incêndio: Funcionando!\n");
             }
@@ -123,7 +118,7 @@ public class Aprovacao {
             {
                 escrita.write("Equip. Incêndio: Necessita Manutenção!\n");
             }
-            if(statusLuzes == true)
+            if(sala.getStatusLuzes() == true)
             {
                 escrita.write("Luzes: Funcionando!\n");
             }
@@ -131,7 +126,7 @@ public class Aprovacao {
             {
                 escrita.write("Luzes: Necessita Manutenção!\n");
             }
-            if(statusSom == true)
+            if(sala.getStatusSom() == true)
             {
                 escrita.write("Som: Funcionando!\n");
             }
@@ -139,7 +134,7 @@ public class Aprovacao {
             {
                 escrita.write("Som: Necessita Manutenção!\n");
             }
-            if(statusTela == true)
+            if(sala.getStatusTela() == true)
             {
                 escrita.write("Tela: Funcionando!\n");
             }
@@ -147,7 +142,7 @@ public class Aprovacao {
             {
                 escrita.write("Tela: Necessita Manutenção!\n");
             }
-            if(statusProjetor == true)
+            if(sala.getStatusProjetor() == true)
             {
                 escrita.write("Projetor: Funcionando!\n");
             }
@@ -155,7 +150,7 @@ public class Aprovacao {
             {
                 escrita.write("Projetor: Necessita Manutenção!\n");
             }
-            if(statusTMS == true)
+            if(sala.getStatusTMS() == true)
             {
                 escrita.write("TMS(Theater Management System): Funcionando!\n");
             }
@@ -172,156 +167,62 @@ public class Aprovacao {
         }
     }
 
-    public Aprovacao() {
-        // Configuração inicial dos status
-        statusAprovacao = false;
-        statusSeguranca = false;
-        statusLimpeza = false;
-        statusPermissaoBombeiros = false;
-        statusLuzes = false;
-        statusSom = false;
-        statusProjetor = false;
-        statusTMS = false;
-        statusTela = false;
-    }
-
-    public boolean isStatusAprovacao() {
-        return statusAprovacao;
-    }
-
-    public void setStatusAprovacao(boolean statusAprovacao) {
-        this.statusAprovacao = statusAprovacao;
-    }
-
-    public boolean isStatusSeguranca() {
-        return statusSeguranca;
-    }
-
-    public void setStatusSeguranca(boolean statusSeguranca) {
-        this.statusSeguranca = statusSeguranca;
-    }
-
-    public boolean isStatusLimpeza() {
-        return statusLimpeza;
-    }
-
-    public void setStatusLimpeza(boolean statusLimpeza) {
-        this.statusLimpeza = statusLimpeza;
-    }
-
-    public boolean isStatusPermissaoBombeiros() {
-        return statusPermissaoBombeiros;
-    }
-
-    public void setStatusPermissaoBombeiros(boolean statusPermissaoBombeiros) {
-        this.statusPermissaoBombeiros = statusPermissaoBombeiros;
-    }
-
-    public boolean isStatusLuzes() {
-        return statusLuzes;
-    }
-
-    public void setStatusLuz(boolean statusLuz) {
-        this.statusLuzes = statusLuz;
-    }
-
-    public boolean isStatusSom(){
-        return statusSom;
-    }
-
-    public void setStatusSom(boolean statusSom){
-        this.statusSom = statusSom;
-    }
-
-    public boolean isStatusProjetor() {
-        return statusProjetor;
-    }
-
-    public void setStatusProjetor(boolean statusProjetor) {
-        this.statusProjetor = statusProjetor;
-    }
-
-    public boolean isStatusTela() {
-        return statusTela;
-    }
-
-    public void setStatusTela(boolean statusTela) {
-        this.statusTela = statusTela;
-    }
-
-    public boolean isStatusTMS()
-    {
-        return statusTMS;
-    }
-
-    public void setStatusTMS(boolean statusTMS){
-        this.statusTMS = statusTMS;
-    }
-
-    public void acessarSala() {
-
-    }
-
+    
+    /**
+     * User Story 2 - Lorenzo Lima Germano
+     */
     public void ChamarFuncionario(){
 
-        Sala Sala01 = new Sala();
         int funcparea = 500;
         int Qtdlimp = 0;
         int Qtdrep = 0;
         int Qtdti = 0;
 
-        Sala01.setComprimento(50);
-        Sala01.setLargura(20);
-        Sala01.setQuantidadeAssentos(500);
-        Sala01.setStatusLuzes(1);
 
-        if(Sala01.getStatusLimpeza() == false){
-            Qtdlimp = (Sala01.getComprimento() * Sala01.getLargura() + Sala01.getQuantidadeAssentos())/funcparea;
+        if(sala.getStatusLimpeza() == false){
+            Qtdlimp = (sala.getComprimento() * sala.getLargura() + sala.getQuantidadeAssentos())/funcparea;
             System.out.println ("Chamar " +Qtdlimp +" funcionarios da equipe de Limpeza");
 
         }
-        if(Sala01.getStatusLuzes() == false || Sala01.getStatusSom() == false || Sala01.getStatusTela() == false){
-            if (Sala01.getStatusLuzes() == false){
+        if(sala.getStatusLuzes() == false || sala.getStatusSom() == false || sala.getStatusTela() == false){
+            if (sala.getStatusLuzes() == false){
                 Qtdrep ++;
             }
-            if (Sala01.getStatusSom() == false){
+            if (sala.getStatusSom() == false){
                 Qtdrep ++;
             }
-            if (Sala01.getStatusTela() == false){
+            if (sala.getStatusTela() == false){
                 Qtdrep ++;
             }
 
             System.out.println ("Chamar " +Qtdrep +" funcionarios da equipe de Reparos");
         }
-        if(Sala01.getStatusProjetor() == false || Sala01.getStatusTMS() == false){
-            if (Sala01.getStatusTMS() == false){
+        if(sala.getStatusProjetor() == false || sala.getStatusTMS() == false){
+            if (sala.getStatusTMS() == false){
                 Qtdti ++;
             }
-            if (Sala01.getStatusProjetor() == false){
+            if (sala.getStatusProjetor() == false){
                 Qtdti ++;
             }
             System.out.println ("Chamar " +Qtdti +" funcionarios da equipe de TI");
         }
-        if(Sala01.getStatusBombeiros() == false){
+        if(sala.getStatusBombeiros() == false){
             System.out.println ("Chamar equipe de Bombeiros");
         }
     }
-    
-    public static void main(String[] args) {
-        Aprovacao aprovacao = new Aprovacao();
+   
+    public boolean getstatusAprovacao() {
+        int qtdEquipamentosFuncionando = 0;
+        for(int i = 0; i < 8; i++){
+            if(sala.checkList[i] == 1){
+                qtdEquipamentosFuncionando++;
+            }
+        }
+        if(qtdEquipamentosFuncionando == 7){
+            aprovacao = true;
+           
+        }
+        return aprovacao;
 
-        aprovacao.setStatusSeguranca(true);
-        aprovacao.setStatusLimpeza(true);
-        aprovacao.setStatusLuz(true);
-        aprovacao.setStatusSom(true);
-        aprovacao.setStatusTMS(true);
-        aprovacao.setStatusTela(true);
-        aprovacao.acessarSala();
-
-        // Alterar status de aprovação
-        aprovacao.setStatusAprovacao(true);
-
-        System.out.println("Status de aprovação: " + aprovacao.isStatusAprovacao());
     }
-
 }
