@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
-public class Aprovacao{
+public class Aprovacao {
     private boolean statusAprovacao;
     private boolean statusSeguranca;
     private boolean statusLimpeza;
@@ -13,7 +13,6 @@ public class Aprovacao{
     private boolean statusProjetor;
     private boolean statusTMS;
     private boolean statusTela;
-    
 
     /** 
      * User Story 1 - Caio da Silva Alves
@@ -85,10 +84,10 @@ public class Aprovacao{
         {
             System.out.println("TMS(Theater Management System): Funcionando corretamente!");
         }
-        
+
         criarRelatorioTXT();
     }
-    
+
     /** 
      * User Story 1 - Caio da Silva Alves 
      */
@@ -172,6 +171,7 @@ public class Aprovacao{
             System.err.println("Erro ao gerar relatório!" + e.getMessage());
         }
     }
+
     public Aprovacao() {
         // Configuração inicial dos status
         statusAprovacao = false;
@@ -224,11 +224,11 @@ public class Aprovacao{
     public void setStatusLuz(boolean statusLuz) {
         this.statusLuzes = statusLuz;
     }
-    
+
     public boolean isStatusSom(){
         return statusSom;
     }
-    
+
     public void setStatusSom(boolean statusSom){
         this.statusSom = statusSom;
     }
@@ -248,19 +248,65 @@ public class Aprovacao{
     public void setStatusTela(boolean statusTela) {
         this.statusTela = statusTela;
     }
-    
+
     public boolean isStatusTMS()
     {
         return statusTMS;
     }
-    
+
     public void setStatusTMS(boolean statusTMS){
         this.statusTMS = statusTMS;
     }
 
     public void acessarSala() {
-       
+
     }
+
+    public void ChamarFuncionario(){
+
+        Sala Sala01 = new Sala();
+        int funcparea = 500;
+        int Qtdlimp = 0;
+        int Qtdrep = 0;
+        int Qtdti = 0;
+
+        Sala01.setComprimento(50);
+        Sala01.setLargura(20);
+        Sala01.setQuantidadeAssentos(500);
+        Sala01.setStatusLuzes(1);
+
+        if(Sala01.getStatusLimpeza() == false){
+            Qtdlimp = (Sala01.getComprimento() * Sala01.getLargura() + Sala01.getQuantidadeAssentos())/funcparea;
+            System.out.println ("Chamar " +Qtdlimp +" funcionarios da equipe de Limpeza");
+
+        }
+        if(Sala01.getStatusLuzes() == false || Sala01.getStatusSom() == false || Sala01.getStatusTela() == false){
+            if (Sala01.getStatusLuzes() == false){
+                Qtdrep ++;
+            }
+            if (Sala01.getStatusSom() == false){
+                Qtdrep ++;
+            }
+            if (Sala01.getStatusTela() == false){
+                Qtdrep ++;
+            }
+
+            System.out.println ("Chamar " +Qtdrep +" funcionarios da equipe de Reparos");
+        }
+        if(Sala01.getStatusProjetor() == false || Sala01.getStatusTMS() == false){
+            if (Sala01.getStatusTMS() == false){
+                Qtdti ++;
+            }
+            if (Sala01.getStatusProjetor() == false){
+                Qtdti ++;
+            }
+            System.out.println ("Chamar " +Qtdti +" funcionarios da equipe de TI");
+        }
+        if(Sala01.getStatusBombeiros() == false){
+            System.out.println ("Chamar equipe de Bombeiros");
+        }
+    }
+    
     public static void main(String[] args) {
         Aprovacao aprovacao = new Aprovacao();
 
@@ -277,4 +323,5 @@ public class Aprovacao{
 
         System.out.println("Status de aprovação: " + aprovacao.isStatusAprovacao());
     }
+
 }

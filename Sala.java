@@ -13,6 +13,14 @@ public class Sala
     
     private int[] checkList = new int[8];
     private int numDaSala;
+    private int comprimento;
+    private int largura;
+    private int quantidadeAssentos;
+    private boolean ehAcessivel;
+    private String tipoProjetor;
+    private int quantidadeSaidasEmergencia;
+    private String equipamentoEletronicoSalaProjecao;
+    private String descricaoDisposicaoCaixasDeSom;
 
     /**
      * Construtor para objetos da classe Sala
@@ -25,6 +33,79 @@ public class Sala
         }
     }
 
+    public void setNumDaSala(int num)
+    {
+        this.numDaSala = num;
+    }
+    
+    public int getNumDaSala()
+    {
+        return numDaSala;
+    }
+    public int getComprimento() {
+        return comprimento;
+    }
+    
+    public void setComprimento(int comprimento){
+        this.comprimento = comprimento;
+    }
+
+    public int getLargura() {
+        return largura;
+    }
+    
+    public void setLargura(int largura){
+        this.largura = largura;
+    }
+
+    public int getQuantidadeAssentos() {
+        return quantidadeAssentos;
+    }
+    
+    public void setQuantidadeAssentos(int quantidadeAssentos){
+        this.quantidadeAssentos = quantidadeAssentos;
+    }
+    
+    public boolean isEhAcessivel() {
+        return ehAcessivel;
+    }
+    
+     public void setEhAcessivel(boolean ehAcessivel){
+        this.ehAcessivel = ehAcessivel;
+    }
+    
+    public String getTipoProjetor() {
+        return tipoProjetor;
+    }
+    
+    public void setTipoProjetor(String tipoProjetor){
+        this.tipoProjetor = tipoProjetor;
+    }
+    
+    public int getQuantidadeSaidasEmergencia() {
+        return quantidadeSaidasEmergencia;
+    }
+ 
+    public void setQuantidadeSaidasEmergencia(int getQuantidadeSaidasEmergencia){
+        this.quantidadeSaidasEmergencia = quantidadeSaidasEmergencia;
+    }
+    
+    public String getEquipamentoEletronicoSalaProjecao() {
+        return equipamentoEletronicoSalaProjecao;
+    }
+    
+    public void setEquipamentoEletronicoSalaProjecao(String equipamentoEletronicoSalaProjecao) {
+        this.equipamentoEletronicoSalaProjecao = equipamentoEletronicoSalaProjecao;
+    }
+    
+    public String getDescricaoDisposicaoCaixasDeSom() {
+        return descricaoDisposicaoCaixasDeSom;
+    }
+    
+    public void setDescricaoDisposicaoCaixasDeSom(String descricaoDisposicaoCaixasDeSom) {
+        this.descricaoDisposicaoCaixasDeSom = descricaoDisposicaoCaixasDeSom;
+    }
+    
     /**
      Recebe o valor "0" para "Reprovado", e o valor "1" para "Aprovado". 
      */
