@@ -10,6 +10,7 @@ public class Aprovacao {
     {
         sala = novaSala;
     }
+
     /**
      * User Story 1 - Caio da Silva Alves
      */
@@ -97,67 +98,67 @@ public class Aprovacao {
             escrita.newLine();
             if(sala.getStatusSeguranca() == true)
             {
-                escrita.write("Segurança: Funcionando!\n");
+                escrita.write("0 - Segurança: Funcionando!\n");
             }
             else
             {
-                escrita.write("Segurança: Necessita Manutenção!\n");
+                escrita.write("0 - Segurança: Necessita Manutenção!\n");
             }
             if(sala.getStatusLimpeza() == true)
             {
-                escrita.write("Limpeza: Funcionando!\n");
+                escrita.write("1 - Limpeza: Funcionando!\n");
             }
             else
             {
-                escrita.write("Limpeza: Necessita Manutenção!\n");
+                escrita.write("1 - Limpeza: Necessita Manutenção!\n");
             }
             if(sala.getStatusBombeiros() == true)
             {
-                escrita.write("Equip. Incêndio: Funcionando!\n");
+                escrita.write("2 - Equip. Incêndio: Funcionando!\n");
             }
             else
             {
-                escrita.write("Equip. Incêndio: Necessita Manutenção!\n");
+                escrita.write("2 - Equip. Incêndio: Necessita Manutenção!\n");
             }
             if(sala.getStatusLuzes() == true)
             {
-                escrita.write("Luzes: Funcionando!\n");
+                escrita.write("3 - Luzes: Funcionando!\n");
             }
             else
             {
-                escrita.write("Luzes: Necessita Manutenção!\n");
+                escrita.write("3 - Luzes: Necessita Manutenção!\n");
             }
             if(sala.getStatusSom() == true)
             {
-                escrita.write("Som: Funcionando!\n");
+                escrita.write("4 - Som: Funcionando!\n");
             }
             else
             {
-                escrita.write("Som: Necessita Manutenção!\n");
+                escrita.write("4 - Som: Necessita Manutenção!\n");
             }
             if(sala.getStatusTela() == true)
             {
-                escrita.write("Tela: Funcionando!\n");
+                escrita.write("5 - Tela: Funcionando!\n");
             }
             else
             {
-                escrita.write("Tela: Necessita Manutenção!\n");
+                escrita.write("5 - Tela: Necessita Manutenção!\n");
             }
             if(sala.getStatusProjetor() == true)
             {
-                escrita.write("Projetor: Funcionando!\n");
+                escrita.write("6 - Projetor: Funcionando!\n");
             }
             else
             {
-                escrita.write("Projetor: Necessita Manutenção!\n");
+                escrita.write("6 - Projetor: Necessita Manutenção!\n");
             }
             if(sala.getStatusTMS() == true)
             {
-                escrita.write("TMS(Theater Management System): Funcionando!\n");
+                escrita.write("7 - TMS(Theater Management System): Funcionando!\n");
             }
             else
             {
-                escrita.write("TMS(Theater Management Sustem): Necessita Manutenção!\n");
+                escrita.write("7 - TMS(Theater Management Sustem): Necessita Manutenção!\n");
             }
             escrita.close();
             System.out.println("\nRelatório gerado com sucesso!");
@@ -168,17 +169,15 @@ public class Aprovacao {
         }
     }
 
-    
     /**
      * User Story 2 - Lorenzo Lima Germano
      */
     public void ChamarFuncionario(){
 
-        int funcparea = 500;
+        int funcparea = 50;
         int Qtdlimp = 0;
         int Qtdrep = 0;
         int Qtdti = 0;
-
 
         if(sala.getStatusLimpeza() == false){
             Qtdlimp = (sala.getComprimento() * sala.getLargura() + sala.getQuantidadeAssentos())/funcparea;
@@ -207,13 +206,13 @@ public class Aprovacao {
             }
             System.out.println ("Chamar " +Qtdti +" funcionarios da equipe de TI");
         }
-        if(sala.getStatusBombeiros() == false){
+        if(sala.getStatusBombeiros() == false || sala.getStatusSeguranca() == false){
             System.out.println ("Chamar equipe de Bombeiros");
         }
     }
+
     public void setStatusSala(int selecao, int status){
-       
-        
+
         if(status != 0 && status!= 1)
         {
             System.out.println("INSIRA UM VALOR VÁLIDO!");
@@ -222,45 +221,36 @@ public class Aprovacao {
         {
             sala.checkList[selecao] = status;
         }
-        
+
     }
+
     public void getEspecificacao(){
-        String nomeArquivo = "Especs.txt";
-        try
-        {
-            BufferedWriter escrita = new BufferedWriter(new FileWriter(nomeArquivo));
-            escrita.write("-----ESPECIFICACOES DA SALA-----");
-            escrita.newLine();
-            escrita.write("Numero da sala:"+sala.getNumDaSala()+"\n");
-            escrita.write("Comprimento:"+sala.getComprimento()+"\n");
-            escrita.write("Largura:"+sala.getLargura()+"\n");
-            escrita.write("Quantidade de assentos:"+sala.getQuantidadeAssentos()+"\n");
-            escrita.write("Acessíbilidade:"+sala.isEhAcessivel()+"\n");
-            escrita.write("Tipo de projetor:"+sala.getTipoProjetor()+"\n");
-            escrita.write("Quantidade de saidas de emergência:"+sala.getQuantidadeSaidasEmergencia()+"\n");
-            escrita.write("Equipamento eletronico para projeção:"+sala.getEquipamentoEletronicoSalaProjecao()+"\n");
-            escrita.write("Disposição das caixas de som:"+sala.getDescricaoDisposicaoCaixasDeSom()+"\n");
-            escrita.close();
-            System.out.println("\nRelatório gerado com sucesso!");
-        }
-        catch(IOException e)
-        {
-            System.err.println("Erro ao gerar relatório!" + e.getMessage());
-        }
+        System.out.println("-----ESPECIFICACOES DA SALA-----\n");
+        System.out.println("Numero da sala:"+sala.getNumDaSala()+"\n");
+        System.out.println("Comprimento:"+sala.getComprimento()+"\n");
+        System.out.println("Largura:"+sala.getLargura()+"\n");
+        System.out.println("Quantidade de assentos:"+sala.getQuantidadeAssentos()+"\n");
+        System.out.println("Tipo de projetor:"+sala.getTipoProjetor()+"\n");
+        System.out.println("Quantidade de saidas de emergência:"+sala.getQuantidadeSaidasEmergencia()+"\n");
+        System.out.println("Disposição das caixas de som:"+sala.getDescricaoDisposicaoCaixasDeSom()+"\n");
+        System.out.println("\nRelatório gerado com sucesso!");
     }
-    
-     public boolean getstatusAprovacao(){
-     int qtdEquipamentosFuncionando = 0;
-     for(int i = 0; i < 8; i++){
+
+    public boolean getstatusAprovacao(){
+        int qtdEquipamentosFuncionando = 0;
+        for(int i = 0; i < 8; i++){
             if(sala.checkList[i] == 1){
                 qtdEquipamentosFuncionando++;
             }
         }
-     if(qtdEquipamentosFuncionando == 7){
+        if(qtdEquipamentosFuncionando == 8){
             aprovacao = true;
-           
-        }
-     return aprovacao;
+            return aprovacao;
 
+        }
+        else{
+            aprovacao = false;
+            return aprovacao;
+        }
     }
 }

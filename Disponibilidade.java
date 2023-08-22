@@ -10,7 +10,7 @@ public class Disponibilidade
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     int [] listaSalas = new int[10];
-    int [] salasDisponiveis = new int [10];
+    int [] salasDisponiveis = {0, 0 , 0};
     int nSala = 0;
 
     Aprovacao aprov = new Aprovacao();
@@ -51,21 +51,23 @@ public class Disponibilidade
     {
         int comando = 0;
         int atributo = 0;
-        while(comando != 4)
+        int manutencao = 0;
+        int statusLoop = 0;
+        while(comando != 5)
         {
             if(comando == 0)
             {
                 System.out.println("/-----Escolha uma função-----/\n");
-                System.out.println("Gerenciar salas: 1\nChecar disponibilidade: 2\nManutenção da Sala: 3\nSair: 4\n");
+                System.out.println("Gerenciar salas: 1\nChecar disponibilidade: 2\nManutenção da Sala: 3\nLista de salas disponíveis: 4\nSair: 5\n");
                 Scanner scanComando = new Scanner(System.in);
                 comando = scanComando.nextInt();
             }
             else if(comando == 1)
             {
-                while(atributo != 6){
+                while(atributo != 8){
                     if(atributo == 0){
                         System.out.println("\n/----------Qual atributo deseja gerenciar?----------/\n");
-                        System.out.println("Dimensões da Sala: 1\nAssentos disponíveis: 2\nTipo de projetor: 3\nSaídas de emergencia: 4\nSistema de som: 5\nVoltar: 6\n");
+                        System.out.println("Dimensões da Sala: 1\nAssentos disponíveis: 2\nTipo de projetor: 3\nSaídas de emergencia: 4\nSistema de som: 5\nVer especificações da sala: 6\nAlterar Status da Sala: 7\nVoltar: 8\n");
                         Scanner scanAtributo = new Scanner(System.in);
                         atributo = scanAtributo.nextInt();
                     }else if(atributo == 1){
@@ -101,15 +103,37 @@ public class Disponibilidade
                         int tipoSom = scanSom.nextInt();
                         sala01.setDescricaoDisposicaoCaixasDeSom(tipoSom);
                         atributo = 0;
+                    }else if(atributo == 6){
+                        aprov.getEspecificacao();
+                        atributo = 0;
+                    }else if(atributo == 7){
+                        while(statusLoop != 8){
+
+                            System.out.println("Digite o numero do equipamento e seu status(0 = Indisponível, 1 = Disponível.)");
+                            System.out.println("Segurança: 0\nLimpeza: 1\nEquip.Incêndio: 2\nLuzes: 3\nSom: 4\nTela: 5\nProjetor: 6\nTMS: 7\nVoltar: 8\n");
+                            Scanner scanEquip = new Scanner(System.in);
+                            int equip = scanEquip.nextInt();
+                            statusLoop = equip;
+                            if(equip != 8){
+                                Scanner scanStatus = new Scanner(System.in);
+                                int status = scanStatus.nextInt();
+                                System.out.println(statusLoop);
+                                aprov.setStatusSala(equip, status);
+                            }
+                        }
+                        atributo = 0;
+                        statusLoop = 0;
                     }
                 }
                 comando = 0;
+                atributo = 0;
             }
             else if(comando == 2)
             {
                 if(aprov.getstatusAprovacao() == true)
                 {
                     System.out.println("Sala: " +sala01.getNumDaSala()+ " Disponível.\n");
+                    salasDisponiveis[0] = 1;
                     comando = 0;
                 }
                 else
@@ -117,6 +141,36 @@ public class Disponibilidade
                     System.out.println("Sala: " +sala01.getNumDaSala()+ " Indisponível.\n");
                     comando = 0;
                 }
+            }
+            else if(comando == 3){
+                while(manutencao != 3){
+                    if(manutencao == 0){
+                        System.out.println("Escolha uma opção.");
+                        System.out.println("Testar equipamento: 1\nChamar manutenção: 2\nVoltar: 3\n");
+                        Scanner scanManut = new Scanner(System.in);
+                        manutencao = scanManut.nextInt();
+                    }
+                    else if(manutencao == 1){
+                        aprov.testarEquipamento();
+                        manutencao = 0;
+                    }else if(manutencao == 2){
+                        aprov.ChamarFuncionario();
+                        manutencao = 0;
+                    }
+                }
+                comando = 0;
+                manutencao = 0;
+            }else if(comando == 4){
+                for(int i = 0, j = 0; i < 3; i++){
+                    if(salasDisponiveis[i] == 0){
+                        j = i+1;
+                        System.out.println("Sala "+j+ " indisponível");
+                    }else if(salasDisponiveis[i] == 1){
+                        j = i+1;
+                        System.out.println("Sala "+j+ " disponível");
+                    }
+                }
+                comando = 0;
             }
             else
             {

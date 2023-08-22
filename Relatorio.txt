@@ -1,0 +1,9 @@
+-----STATUS DO EQUIPAMENTO-----
+0 - Segurança: Necessita Manutenção!
+1 - Limpeza: Necessita Manutenção!
+2 - Equip. Incêndio: Necessita Manutenção!
+3 - Luzes: Necessita Manutenção!
+4 - Som: Necessita Manutenção!
+5 - Tela: Necessita Manutenção!
+6 - Projetor: Necessita Manutenção!
+7 - TMS(Theater Management Sustem): Necessita Manutenção!

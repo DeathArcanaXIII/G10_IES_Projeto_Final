@@ -11,7 +11,7 @@ public class Sala
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     
-    public int[] checkList = {0, 1, 2, 3, 4, 5, 6, 7};
+    public int[] checkList = {0, 0, 0, 0, 0, 0, 0, 0};
     private int numDaSala = 0;
     private int comprimento = 0;
     private int largura = 0;
@@ -19,7 +19,6 @@ public class Sala
     private boolean ehAcessivel;
     private String tipoProjetor;
     private int quantidadeSaidasEmergencia;
-    private String equipamentoEletronicoSalaProjecao;
     private String descricaoDisposicaoCaixasDeSom;
 
     public void setNumDaSala(int num)
@@ -58,14 +57,6 @@ public class Sala
         System.out.println("Quantidade de assentos alterado!");
     }
     
-    public boolean isEhAcessivel() {
-        return ehAcessivel;
-    }
-    
-     public void setEhAcessivel(boolean ehAcessivel){
-        this.ehAcessivel = ehAcessivel;
-    }
-    
     public String getTipoProjetor() {
         return tipoProjetor;
     }
@@ -99,17 +90,9 @@ public class Sala
         return quantidadeSaidasEmergencia;
     }
  
-    public void setQuantidadeSaidasEmergencia(int getQuantidadeSaidasEmergencia){
-        this.quantidadeSaidasEmergencia = quantidadeSaidasEmergencia;
+    public void setQuantidadeSaidasEmergencia(int qtdSaidas){
+        this.quantidadeSaidasEmergencia = qtdSaidas;
         System.out.println("Saidas de emergencia alterado!");
-    }
-    
-    public String getEquipamentoEletronicoSalaProjecao() {
-        return equipamentoEletronicoSalaProjecao;
-    }
-    
-    public void setEquipamentoEletronicoSalaProjecao(String equipamentoEletronicoSalaProjecao) {
-        this.equipamentoEletronicoSalaProjecao = equipamentoEletronicoSalaProjecao;
     }
     
     public String getDescricaoDisposicaoCaixasDeSom() {
